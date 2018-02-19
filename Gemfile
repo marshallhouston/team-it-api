@@ -18,6 +18,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'figaro'
 gem 'faraday'
 gem 'fast_jsonapi'
+gem 'rack-cors'
+gem 'jwt'
+gem 'knock'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
