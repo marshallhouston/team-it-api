@@ -7,7 +7,7 @@ describe User do
       it { should validate_presence_of(:email) }
       it { should validate_presence_of(:phone) }
       it { should validate_presence_of(:team_role) }
-    end
+  end
 
     it "requires a unique email" do
       user1 = User.create(name: 'Bob', email: 'bob@bob.com', phone: '255-555-5555', team_role: 0)
@@ -17,4 +17,8 @@ describe User do
     end
   end
 
+  describe "relationships" do
+    it { should have_many :team_followers }
+    it { should have_many :teams }
+  end
 end
