@@ -1,6 +1,5 @@
-class TeamSerializer
+class TeamsSerializer
   include FastJsonapi::ObjectSerializer
   set_type :team
   attributes :name, :phone
-  has_many :users
 end
