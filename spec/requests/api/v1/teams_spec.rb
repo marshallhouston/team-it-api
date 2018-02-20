@@ -41,4 +41,16 @@ describe 'Teams API' do
       expect(response.status).to eq 404
     end
   end
+
+  describe 'post /api/v1/teams' do
+    context 'valid attributes' do
+      it 'creates a new team resource' do
+        headers = { "CONTENT_TYPE" => "application/json" }
+        expect {
+          post "/api/v1/teams", params: '{"team": {"name": "Westwood Soccer"} }', headers: headers
+        }.to change(Team, :count).by(1)
+        expect(response.status).to eq 201
+      end
+    end
+  end
 end
