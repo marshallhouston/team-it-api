@@ -4,13 +4,15 @@ class Api::V1::TeamsController < ApplicationController
     teams = Team.all
     options = {}
     options[:meta] = { total_teams: teams.length }
-    render json: TeamSerializer.new(teams, options).serialized_json
+    render json: TeamsSerializer.new(teams, options).serialized_json
   end
 
   def show
     team = Team.find_by(id: params[:id])
+    options = {}
+    options[:include] = [:users]
     if team
-      render json: TeamSerializer.new(team).serialized_json
+      render json: TeamSerializer.new(team, options).serialized_json
     else
       render json: {"Error": "Team not found"}, status: :not_found
     end
