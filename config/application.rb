@@ -28,7 +28,7 @@ module TeamItApi
       end
 
       allow do
-        origins 'https://marshallhouston.github.io/team-it/'
+        origins 'https://marshallhouston.github.io'
         resource '*', headers: :any, methods: [:get, :post, :options, :put, :delete]
       end
 
