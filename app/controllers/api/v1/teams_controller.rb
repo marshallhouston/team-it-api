@@ -12,7 +12,7 @@ class Api::V1::TeamsController < ApplicationController
     if team
       render json: TeamSerializer.new(team).serialized_json
     else
-      render json: {"Error": "Team not found"}, status: 404
+      render json: {"Error": "Team not found"}, status: :not_found
     end
   end
 
