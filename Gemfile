@@ -22,6 +22,8 @@ gem 'knock'
 gem 'bcrypt'
 gem 'faker'
 gem 'fast_jsonapi'
+gem 'twilio-ruby', '~> 5.6.3'
+gem 'phony'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -31,6 +33,8 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'simplecov', require: false
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do

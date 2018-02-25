@@ -23,3 +23,6 @@
 
 # Ignore SimpleCov files
 coverage
+
+# Ignore cassettes
+/spec/cassettes
