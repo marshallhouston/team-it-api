@@ -14,7 +14,7 @@ describe 'Teams API' do
       expect(first_team['id'].to_i).to eq teams[0].id
       expect(first_team['type']).to eq 'team'
       expect(first_team['attributes']['name']).to eq teams[0].name
-      expect(first_team['attributes']['phone']).to eq teams[0].phone
+      expect(first_team['attributes']['team_code']).to eq teams[0].team_code
       expect(parsed_data['meta']).to eq({ 'total_teams' => 2 })
     end
   end
@@ -31,7 +31,7 @@ describe 'Teams API' do
       expect(response).to be_success
       expect(team_info['id'].to_i).to eq requested_team.id
       expect(team_info['attributes']['name']).to eq requested_team.name
-      expect(team_info['attributes']['phone']).to eq requested_team.phone
+      expect(team_info['attributes']['team_code']).to eq requested_team.team_code
     end
 
     it 'returns 404 if the team does not exist' do
@@ -49,7 +49,12 @@ describe 'Teams API' do
         expect {
           post "/api/v1/teams", params: '{"team": {"name": "Westwood Soccer"} }', headers: headers
         }.to change(Team, :count).by(1)
+
+        parsed_team = JSON.parse(response.body)
+
         expect(response.status).to eq 201
+        expect(parsed_team['data']['attributes']['name']).to eq "Westwood Soccer"
+        expect(parsed_team['data']['attributes']['team_code']).to be
       end
     end
   end
