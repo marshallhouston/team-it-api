@@ -5,7 +5,10 @@ task create_teams: :environment do
   team_count_before = Team.count
 
   5.times do |i|
-    Team.find_or_create_by(name: team_names[i])
+    new_team_code = Faker::Number.unique.number(3)
+    team = Team.where(name: team_names[i]).first_or_create do |new_team|
+      new_team.team_code = new_team_code
+    end
   end
 
   puts "#{Team.count - team_count_before} New Teams Created! On the first run, this should be 5."
