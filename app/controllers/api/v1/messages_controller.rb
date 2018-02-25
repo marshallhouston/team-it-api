@@ -14,7 +14,7 @@ class Api::V1::MessagesController < ApplicationController
     attr_reader :message, :team, :sender_number
 
     def find_team
-      @team ||= Team.find_by(id: message.match(/^\d+/).to_a.first)
+      @team ||= Team.find_by(team_code: message.match(/^\d+/).to_a.first)
     end
 
     def message
