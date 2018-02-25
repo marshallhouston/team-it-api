@@ -2,9 +2,7 @@ class MessageCreatorService
 
   def self.send_messages(team, message = '')
     team.users.each do |user|
-      formatted_phone = Phony.normalize(user.phone)
-      final_phone = '+1'.concat(formatted_phone)
-      build_message("Hi #{user.name}! Your coach says: " + message, final_phone)
+      build_message("Hi #{user.name}! Your coach says: " + message, user.phone)
     end
   end
 
