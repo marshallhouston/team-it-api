@@ -19,7 +19,8 @@ class Api::V1::TeamsController < ApplicationController
   end
 
   def create
-    team = Team.new(new_team_params)
+    team = Team.new(team_params)
+    team.generate_team_code
 
     if team.save
       render json: TeamSerializer.new(team).serialized_json, status: :created
@@ -34,10 +35,4 @@ class Api::V1::TeamsController < ApplicationController
       params.require(:team).permit(:name)
     end
 
-    def new_team_params
-      # for proof of concept/proper rendering via client, I'm generating a random phone number.
-      # this is where the Twilio service will create a # for the team and then save it in the db.
-      phone_number = {phone: Faker::PhoneNumber.phone_number }
-      team_params.merge(phone_number)
-    end
 end
