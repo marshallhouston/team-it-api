@@ -2,11 +2,19 @@
 
 ## Team It
 
+Team It is an app for youth sport coaches to quickly communicate with families. Team It allows youth sports coaches to create a new team and then add followers to the team. Once a coach has added followers to a team, they can quickly communicate to all the team followers by sending a text to the application number.
+
+To find the team code, visit the teams page. 
+<img src='http://i268.photobucket.com/albums/jj12/mrhouston3/team_code_team_it_zps2k1h3vp0.png' >
+
+At the start of the message, include the team code. Every follower of this team will receive the message.
+<img src='http://i268.photobucket.com/albums/jj12/mrhouston3/Screen%20Shot%202018-02-26%20at%208.14.14%20PM_zps1xmk9a0x.png' >
+
+## Backend API
+
 This application is the backend for the Team It front end application hosted here [Team It!](https://marshallhouston.github.io/team-it/)
 
-Team It is an app for youth sport coaches to quickly communicate with families using React on the front end, Twilio for messaging, and Rails as the backend.
-
-It was built from scratch over a 2 week period by Marshall Houston as a personal project at the [Turing School of Software & Design](https://www.turing.io/)
+This is a solo project built over approximately 120 working hours as a personal project at the [Turing School of Software & Design](https://www.turing.io/)
 
 ## Setup
 This application uses Ruby 2.4.1.
